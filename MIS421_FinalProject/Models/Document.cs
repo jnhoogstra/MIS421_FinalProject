@@ -16,6 +16,7 @@ namespace MIS421_FinalProject.Models
         [Required]
         public string docName { get; set; }
         public DateTime uploadDate { get; set; }
+        public bool verified { get; set; }
 
         [DataType(DataType.Upload)]
         [DisplayName("File")]
