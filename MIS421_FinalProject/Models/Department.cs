@@ -11,7 +11,7 @@ namespace MIS421_FinalProject.Models
     public class Department
     {
         [Key]
-        public Guid deptID { get; set; }
+        public int deptID { get; set; }
 
         [Required]
         public string deptName { get; set; }

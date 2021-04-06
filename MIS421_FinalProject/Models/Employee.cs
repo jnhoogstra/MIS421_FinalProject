@@ -11,7 +11,7 @@ namespace MIS421_FinalProject.Models
     public class Employee
     {
         [Key]
-        public Guid empID { get; set; }
+        public int empID { get; set; }
 
         [Required]
         public string empFName { get; set; }
