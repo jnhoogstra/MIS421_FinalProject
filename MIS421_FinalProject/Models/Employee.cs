@@ -13,10 +13,9 @@ namespace MIS421_FinalProject.Models
         [Key]
         public int empID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Field is required.")]
         public string empFName { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Field is required.")]
         public string empLName { get; set; }
 
         [DataType(DataType.Date)]
@@ -24,9 +23,19 @@ namespace MIS421_FinalProject.Models
 
         [DataType(DataType.Date)]
         public DateTime empHireDate { get; set; }
+
+        //employee contact inforamtion
+        [Required(ErrorMessage = "Field is required.")]
         public  string empPhone { get; set; }
+        [Required(ErrorMessage = "Field is required.")]
         public string empAddress { get; set; }
+        [Required(ErrorMessage = "Field is required.")]
         public string empCity { get; set; }
+        [Required(ErrorMessage = "Field is required.")]
+        public string empCountry { get; set; }
+        [Required(ErrorMessage = "Field is required.")]
+
+        public string empState { get; set; }
         public string empZip { get; set; }
 
 

@@ -13,7 +13,7 @@ namespace MIS421_FinalProject.Models
         [Key]
         public Guid docID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Field is required.")]
         public string docName { get; set; }
         public DateTime uploadDate { get; set; }
         public bool verified { get; set; }
