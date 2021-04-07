@@ -24,6 +24,11 @@ namespace MIS421_FinalProject.Models
         [DataType(DataType.Date)]
         public DateTime empHireDate { get; set; }
 
+        [DataType(DataType.Upload)]
+        [DisplayName("Profile Picture")]
+
+        public byte[] ProfilePic { get; set; }
+
         //employee contact inforamtion
         [Required(ErrorMessage = "Field is required.")]
         public  string empPhone { get; set; }
@@ -41,5 +46,7 @@ namespace MIS421_FinalProject.Models
 
         //Foreign key to Department
         public virtual Department Department { get; set; }
+
+
     }
 }
