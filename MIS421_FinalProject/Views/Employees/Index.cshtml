@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MIS421_FinalProject.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empFName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empLName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empBDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empHireDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfilePic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empZip)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.empFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empLName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empBDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empHireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfilePic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empZip)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.empID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.empID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.empID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MIS421_FinalProject.Models;
 
 namespace MIS421_FinalProject.Data
 {
@@ -12,5 +13,8 @@ namespace MIS421_FinalProject.Data
             : base(options)
         {
         }
+        public DbSet<MIS421_FinalProject.Models.Department> Department { get; set; }
+        public DbSet<MIS421_FinalProject.Models.Employee> Employee { get; set; }
+        public DbSet<MIS421_FinalProject.Models.Document> Document { get; set; }
     }
 }

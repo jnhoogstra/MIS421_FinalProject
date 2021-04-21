@@ -1,0 +1,42 @@
+﻿@model MIS421_FinalProject.Models.Document
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Document</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.docName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.docName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uploadDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uploadDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.verified)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.verified)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.content)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.docID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
