@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,7 @@ namespace MIS421_FinalProject.Views.Home
             return View(document);
         }
 
+        [Authorize(Roles = SD.Admin)]
         // GET: Documents/Create
         public IActionResult Create()
         {
@@ -66,6 +68,7 @@ namespace MIS421_FinalProject.Views.Home
             return View(document);
         }
 
+        [Authorize(Roles = SD.Admin)]
         // GET: Documents/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -117,6 +120,7 @@ namespace MIS421_FinalProject.Views.Home
             return View(document);
         }
 
+        [Authorize(Roles = SD.Admin)]
         // GET: Documents/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
