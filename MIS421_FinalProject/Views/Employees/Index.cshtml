@@ -123,9 +123,7 @@
             <td>
                 @if (item.ProfilePic != null)
                 {
-                    var base64 = Convert.ToBase64String(item.ProfilePic);
-                    var img = string.Format("data:image/jpg;base64,{0}", base64);
-                    <img src="@img" height="100" width="100" />
+                   <img width="100" height="100" srs="@Url.Action("GetProfilePic", "Employee", new { item.empID })" />
                 }
             </td>
             <td>

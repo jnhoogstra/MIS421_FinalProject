@@ -72,10 +72,17 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee)
+        public async Task<IActionResult> Create([Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee, IFormFile ProfilePic)
         {
             if (ModelState.IsValid)
             {
+                if (ProfilePic != null && ProfilePic.Length > 0)
+                {
+                    var memoryStream = new MemoryStream();
+                    await ProfilePic.CopyToAsync(memoryStream);
+                    employee.ProfilePic = memoryStream.ToArray();
+                }
+
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -105,7 +112,7 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee, IFormFile ProfilePic)
         {
             if (id != employee.empID)
             {
@@ -116,6 +123,21 @@ namespace MIS421_FinalProject.Views.Home
             {
                 try
                 {
+                    if (ProfilePic != null && ProfilePic.Length > 0)
+                    {
+                        var memoryStream = new MemoryStream();
+                        await ProfilePic.CopyToAsync(memoryStream);
+                        employee.ProfilePic = memoryStream.ToArray();
+                    }
+                    else
+                    {
+                        Employee existingpic = _context.Employee.AsNoTracking().FirstOrDefault(m => m.empID == id);
+                        if (existingpic != null)
+                        {
+                            employee.ProfilePic = existingpic.ProfilePic;
+                        }
+                    }
+
                     _context.Update(employee);
                     await _context.SaveChangesAsync();
                 }
