@@ -13,9 +13,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProfilePic)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.empFName)
             </th>
             <th>
@@ -73,9 +70,6 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProfilePic)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.empFName)
             </td>
             <td>
@@ -125,6 +119,14 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.empSalary)
+            </td>
+            <td>
+                @if (item.ProfilePic != null)
+                {
+                    var base64 = Convert.ToBase64String(item.ProfilePic);
+                    var img = string.Format("data:image/jpg;base64,{0}", base64);
+                    <img src="@img" height="100" width="100" />
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.empID">Edit</a> |
