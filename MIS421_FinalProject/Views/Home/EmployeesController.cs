@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MIS421_FinalProject.Data;
 using MIS421_FinalProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System.IO;
@@ -59,7 +60,7 @@ namespace MIS421_FinalProject.Views.Home
 
             return View(employee);
         }
-
+        [Authorize(Roles = "SD.Admin, SD.Manager")]
         // GET: Employees/Create
         public IActionResult Create()
         {
@@ -82,6 +83,7 @@ namespace MIS421_FinalProject.Views.Home
             return View(employee);
         }
 
+        [Authorize(Roles = "SD.Admin, SD.Manager")]
         // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -133,6 +135,7 @@ namespace MIS421_FinalProject.Views.Home
             return View(employee);
         }
 
+        [Authorize(Roles = "SD.Admin, SD.Manager")]
         // GET: Employees/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
