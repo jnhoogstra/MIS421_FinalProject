@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using MIS421_FinalProject.Data;
 using MIS421_FinalProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace MIS421_FinalProject.Views.Home
 {
@@ -24,6 +28,19 @@ namespace MIS421_FinalProject.Views.Home
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employee.ToListAsync());
+        }
+
+        public async Task<IActionResult> GetProfilePic(int id)
+        {
+            var pic = await _context.Employee
+                .FirstOrDefaultAsync(m => m.empID == id);
+            if (pic == null)
+            {
+                return NotFound();
+            }
+            var imageData = pic.ProfilePic;
+
+            return File(imageData, "image/jpg");
         }
 
         // GET: Employees/Details/5
