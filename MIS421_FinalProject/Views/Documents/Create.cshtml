@@ -13,12 +13,12 @@
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="docName" class="control-label">Document Name</label>
+                <label asp-for="docName" class="control-label"></label>
                 <input asp-for="docName" class="form-control" />
                 <span asp-validation-for="docName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="uploadDate" class="control-label">Upload Date</label>
+                <label asp-for="uploadDate" class="control-label"></label>
                 <input asp-for="uploadDate" class="form-control" />
                 <span asp-validation-for="uploadDate" class="text-danger"></span>
             </div>

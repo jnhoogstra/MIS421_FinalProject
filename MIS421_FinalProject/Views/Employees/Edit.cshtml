@@ -10,63 +10,98 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="empID" />
             <div class="form-group">
-                <label asp-for="empFName" class="control-label">First Name</label>
+                <label asp-for="empFName" class="control-label"></label>
                 <input asp-for="empFName" class="form-control" />
                 <span asp-validation-for="empFName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empLName" class="control-label">Last Name</label>
+                <label asp-for="empLName" class="control-label"></label>
                 <input asp-for="empLName" class="form-control" />
                 <span asp-validation-for="empLName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empBDate" class="control-label">BirthDate</label>
+                <label asp-for="empBDate" class="control-label"></label>
                 <input asp-for="empBDate" class="form-control" />
                 <span asp-validation-for="empBDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empHireDate" class="control-label">Hire Date</label>
-                <input asp-for="empHireDate" class="form-control" />
-                <span asp-validation-for="empHireDate" class="text-danger"></span>
+                <label asp-for="empSSN" class="control-label"></label>
+                <input asp-for="empSSN" class="form-control" />
+                <span asp-validation-for="empSSN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProfilePic" class="control-label">Upload Profile Picture</label>
-                <input asp-for="ProfilePic" class="form-control" />
+                <label asp-for="empGender" class="control-label"></label>
+                <input asp-for="empGender" class="form-control" />
+                <span asp-validation-for="empGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empMaritalStatus" class="control-label"></label>
+                <input asp-for="empMaritalStatus" class="form-control" />
+                <span asp-validation-for="empMaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfilePic" class="control-label">Upload Profice Picture</label>
+                <input id="picupload" name="mypic" type="file" />
                 <span asp-validation-for="ProfilePic" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empPhone" class="control-label">Phone Number</label>
+                <label asp-for="empPhone" class="control-label"></label>
                 <input asp-for="empPhone" class="form-control" />
                 <span asp-validation-for="empPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empAddress" class="control-label">Home Address</label>
+                <label asp-for="empEmail" class="control-label"></label>
+                <input asp-for="empEmail" class="form-control" />
+                <span asp-validation-for="empEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empAddress" class="control-label"></label>
                 <input asp-for="empAddress" class="form-control" />
                 <span asp-validation-for="empAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empCity" class="control-label">City</label>
+                <label asp-for="empCity" class="control-label"></label>
                 <input asp-for="empCity" class="form-control" />
                 <span asp-validation-for="empCity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empCountry" class="control-label">Country</label>
+                <label asp-for="empCountry" class="control-label"></label>
                 <input asp-for="empCountry" class="form-control" />
                 <span asp-validation-for="empCountry" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empState" class="control-label">State</label>
+                <label asp-for="empState" class="control-label"></label>
                 <input asp-for="empState" class="form-control" />
                 <span asp-validation-for="empState" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="empZip" class="control-label">Zip Code</label>
+                <label asp-for="empZip" class="control-label"></label>
                 <input asp-for="empZip" class="form-control" />
                 <span asp-validation-for="empZip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empHireDate" class="control-label"></label>
+                <input asp-for="empHireDate" class="form-control" />
+                <span asp-validation-for="empHireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empEndDate" class="control-label"></label>
+                <input asp-for="empEndDate" class="form-control" />
+                <span asp-validation-for="empEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="empActive" /> @Html.DisplayNameFor(model => model.empActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="empSalary" class="control-label"></label>
+                <input asp-for="empSalary" class="form-control" />
+                <span asp-validation-for="empSalary" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

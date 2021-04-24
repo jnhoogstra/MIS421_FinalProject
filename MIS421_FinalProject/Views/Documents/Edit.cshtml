@@ -10,16 +10,16 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="docID" />
             <div class="form-group">
-                <label asp-for="docName" class="control-label">Document Name</label>
+                <label asp-for="docName" class="control-label"></label>
                 <input asp-for="docName" class="form-control" />
                 <span asp-validation-for="docName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="uploadDate" class="control-label">Upload Date</label>
+                <label asp-for="uploadDate" class="control-label"></label>
                 <input asp-for="uploadDate" class="form-control" />
                 <span asp-validation-for="uploadDate" class="text-danger"></span>
             </div>
@@ -29,9 +29,9 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="content" class="control-label"></label>
+                <label asp-for="content" class="control-label">Upload Document</label>
                 <input id="fileupload" name="myfile" type="file" />
-                <span asp-validation-for="content" class="text-danger">Upload Document</span>
+                <span asp-validation-for="content" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -22,13 +22,13 @@
                 @Html.DisplayNameFor(model => model.deptCity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.deptCountry)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.deptState)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.deptZip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deptCountry)
             </th>
             <th></th>
         </tr>
@@ -46,13 +46,13 @@
                 @Html.DisplayFor(modelItem => item.deptCity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.deptCountry)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.deptState)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.deptZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deptCountry)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.deptID">Edit</a> |

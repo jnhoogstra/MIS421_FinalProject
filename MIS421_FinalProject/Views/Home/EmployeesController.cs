@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -44,7 +43,6 @@ namespace MIS421_FinalProject.Views.Home
             return View(employee);
         }
 
-        [Authorize(Roles = "SD.Admin, SD.Manager")]
         // GET: Employees/Create
         public IActionResult Create()
         {
@@ -56,7 +54,7 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("empID,empFName,empLName,empBDate,empHireDate,ProfilePic,empPhone,empAddress,empCity,empCountry,empState,empZip")] Employee employee)
+        public async Task<IActionResult> Create([Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +65,6 @@ namespace MIS421_FinalProject.Views.Home
             return View(employee);
         }
 
-        [Authorize(Roles = "SD.Admin, SD.Manager")]
         // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -89,7 +86,7 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("empID,empFName,empLName,empBDate,empHireDate,ProfilePic,empPhone,empAddress,empCity,empCountry,empState,empZip")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee)
         {
             if (id != employee.empID)
             {
@@ -119,7 +116,6 @@ namespace MIS421_FinalProject.Views.Home
             return View(employee);
         }
 
-        [Authorize(Roles = "SD.Admin, SD.Manager")]
         // GET: Employees/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
