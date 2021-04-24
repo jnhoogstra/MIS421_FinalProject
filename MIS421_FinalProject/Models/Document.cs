@@ -13,14 +13,26 @@ namespace MIS421_FinalProject.Models
         [Key]
         public Guid docID { get; set; }
 
-        [Required(ErrorMessage = "Field is required.")]
+        [Display(Name = "File Name")]
         public string docName { get; set; }
+
+        [Display(Name = "Uploaded")]
+        [DisplayFormat(DataFormatString = "{0:G}")]
         public DateTime uploadDate { get; set; }
+
+        [Display(Name = "Size (bytes)")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        public long Size { get; set; }
+
+
         public bool verified { get; set; }
 
         [DataType(DataType.Upload)]
         [DisplayName("File")]
         public byte[] content { get; set; }
+
+
+
 
         //Foreign key to Employee
         public virtual Employee Employee { get; set; }

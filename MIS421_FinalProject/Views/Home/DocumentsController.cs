@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIS421_FinalProject.Data;
 using MIS421_FinalProject.Models;
+using System.IO;
 
 namespace MIS421_FinalProject.Views.Home
 {
@@ -42,6 +43,9 @@ namespace MIS421_FinalProject.Views.Home
 
             return View(document);
         }
+
+        //FileUpload
+        
 
         // GET: Documents/Create
         public IActionResult Create()

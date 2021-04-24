@@ -1,10 +1,10 @@
 ﻿@model MIS421_FinalProject.Models.Document
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Upload";
 }
 
-<h1>Create</h1>
+<h1>Upload</h1>
 
 <h4>Document</h4>
 <hr />
@@ -29,11 +29,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="content" class="control-label">Upload Document</label>
-                <input id="fileupload" name="myfile" type="file" />
+                <input asp-for="content" id="fileupload" name="myfile" type="file" />
                 <span asp-validation-for="content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input asp-page-handler="Upload" type="submit" value="Upload" class="btn btn-primary" />
             </div>
         </form>
     </div>

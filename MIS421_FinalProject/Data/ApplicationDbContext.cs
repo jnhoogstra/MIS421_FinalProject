@@ -13,6 +13,8 @@ namespace MIS421_FinalProject.Data
             : base(options)
         {
         }
+
+
         public DbSet<MIS421_FinalProject.Models.Department> Department { get; set; }
         public DbSet<MIS421_FinalProject.Models.Employee> Employee { get; set; }
         public DbSet<MIS421_FinalProject.Models.Document> Document { get; set; }
