@@ -10,18 +10,18 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="docName" class="control-label"></label>
+                <label asp-for="docName" class="control-label">Document Name</label>
                 <input asp-for="docName" class="form-control" />
                 <span asp-validation-for="docName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="uploadDate" class="control-label"></label>
+            @*<div class="form-group">
+                <label asp-for="uploadDate" class="control-label">Upload Date</label>
                 <input asp-for="uploadDate" class="form-control" />
                 <span asp-validation-for="uploadDate" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="verified" /> @Html.DisplayNameFor(model => model.verified)
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="content" class="control-label">Upload Document</label>
-                <input asp-for="content" id="fileupload" name="myfile" type="file" />
+                <input id="content" name="content" type="file" multiple class="form-control" />
                 <span asp-validation-for="content" class="text-danger"></span>
             </div>
             <div class="form-group">

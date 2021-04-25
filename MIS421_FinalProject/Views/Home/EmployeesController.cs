@@ -29,7 +29,7 @@ namespace MIS421_FinalProject.Views.Home
             return View(await _context.Employee.ToListAsync());
         }
 
-        public async Task<IActionResult> GetProfilePic(int id)
+        public async Task<IActionResult> GetProfilePic(int id) //isnt actually used right now
         {
             var pic = await _context.Employee
                 .FirstOrDefaultAsync(m => m.empID == id);

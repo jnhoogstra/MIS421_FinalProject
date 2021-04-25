@@ -16,14 +16,14 @@ namespace MIS421_FinalProject.Models
         [Display(Name = "File Name")]
         public string docName { get; set; }
 
+        [DataType(DataType.Date)]
         [Display(Name = "Uploaded")]
-        [DisplayFormat(DataFormatString = "{0:G}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime uploadDate { get; set; }
 
         [Display(Name = "Size (bytes)")]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public long Size { get; set; }
-
 
         public bool verified { get; set; }
 

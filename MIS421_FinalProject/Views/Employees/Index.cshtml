@@ -13,55 +13,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.empFName)
+                Profile Picture
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empLName)
+                First Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empPhone)
+                Last Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empEmail)
+                Phone Number
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empAddress)
+                Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empCity)
+                Birth Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empState)
+                Hire Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.empZip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empCountry)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empBDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empSSN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empGender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empMaritalStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empHireDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empEndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empActive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.empSalary)
+                Active?
             </th>
             <th></th>
         </tr>
@@ -69,6 +42,16 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @if (item.ProfilePic != null)
+                {
+                    var base64 = Convert.ToBase64String(item.ProfilePic);
+                    var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                    <img src="@imgSrc" height="100" width="100" />
+
+                    //<img width="100" height="100" src="@Url.Action("GetProfilePic", "Employee", new { item.empID })" />
+                }
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.empFName)
             </td>
@@ -82,49 +65,13 @@
                 @Html.DisplayFor(modelItem => item.empEmail)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.empAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empState)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empZip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empCountry)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.empBDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empSSN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empGender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empMaritalStatus)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.empHireDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.empEndDate)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.empActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.empSalary)
-            </td>
-            <td>
-                @if (item.ProfilePic != null)
-                {
-                   <img width="100" height="100" srs="@Url.Action("GetProfilePic", "Employee", new { item.empID })" />
-                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.empID">Edit</a> |
