@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit" enctype="multipart/form-data">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="docID" />
             <div class="form-group">
@@ -23,15 +23,25 @@
                 <input asp-for="uploadDate" class="form-control" />
                 <span asp-validation-for="uploadDate" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <input asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="verified" /> @Html.DisplayNameFor(model => model.verified)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="content" class="control-label">Upload Document</label>
-                <input id="content" name="content" type="file" multiple class="form-control" />
+                <label asp-for="content" class="control-label"></label>
+                <input asp-for="content" class="form-control" />
                 <span asp-validation-for="content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="empID" class="control-label"></label>
+                <input asp-for="empID" class="form-control" />
+                <span asp-validation-for="empID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

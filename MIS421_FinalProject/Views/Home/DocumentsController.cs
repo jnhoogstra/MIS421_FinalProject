@@ -7,13 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIS421_FinalProject.Data;
 using MIS421_FinalProject.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using System.IO;
-using System.Data.SqlClient;
-using System.Web;
-using System.Data;
 
 namespace MIS421_FinalProject.Views.Home
 {
@@ -50,9 +43,6 @@ namespace MIS421_FinalProject.Views.Home
             return View(document);
         }
 
-        //FileUpload
-
-
         // GET: Documents/Create
         public IActionResult Create()
         {
@@ -64,17 +54,10 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("docID,docName,uploadDate,verified,content")] Document document, IFormFile content)
+        public async Task<IActionResult> Create([Bind("docID,docName,uploadDate,Size,verified,content,empID")] Document document)
         {
             if (ModelState.IsValid)
             {
-                if (content != null && content.Length > 0)
-                {
-                    var memoryStream = new MemoryStream();
-                    await content.CopyToAsync(memoryStream);
-                    document.content = memoryStream.ToArray();
-                }
-
                 document.docID = Guid.NewGuid();
                 _context.Add(document);
                 await _context.SaveChangesAsync();
@@ -104,7 +87,7 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("docID,docName,uploadDate,verified,content")] Document document, IFormFile content)
+        public async Task<IActionResult> Edit(Guid id, [Bind("docID,docName,uploadDate,Size,verified,content,empID")] Document document)
         {
             if (id != document.docID)
             {
@@ -115,13 +98,6 @@ namespace MIS421_FinalProject.Views.Home
             {
                 try
                 {
-                    if (content != null && content.Length > 0)
-                    {
-                        var memoryStream = new MemoryStream();
-                        await content.CopyToAsync(memoryStream);
-                        document.content = memoryStream.ToArray();
-                    }
-
                     _context.Update(document);
                     await _context.SaveChangesAsync();
                 }
@@ -174,9 +150,5 @@ namespace MIS421_FinalProject.Views.Home
         {
             return _context.Document.Any(e => e.docID == id);
         }
-
-
-        //download file stuff
-        
     }
 }

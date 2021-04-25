@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIS421_FinalProject.Data;
 using MIS421_FinalProject.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using System.IO;
 
 namespace MIS421_FinalProject.Views.Home
 {
@@ -27,19 +26,6 @@ namespace MIS421_FinalProject.Views.Home
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employee.ToListAsync());
-        }
-
-        public async Task<IActionResult> GetProfilePic(int id) //isnt actually used right now
-        {
-            var pic = await _context.Employee
-                .FirstOrDefaultAsync(m => m.empID == id);
-            if (pic == null)
-            {
-                return NotFound();
-            }
-            var imageData = pic.ProfilePic;
-
-            return File(imageData, "image/jpg");
         }
 
         // GET: Employees/Details/5
@@ -59,6 +45,7 @@ namespace MIS421_FinalProject.Views.Home
 
             return View(employee);
         }
+
         [Authorize(Roles = "Admin, Manager")]
         // GET: Employees/Create
         public IActionResult Create()
@@ -71,7 +58,7 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee, IFormFile ProfilePic)
+        public async Task<IActionResult> Create([Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary,deptID")] Employee employee, IFormFile ProfilePic)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +98,7 @@ namespace MIS421_FinalProject.Views.Home
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary")] Employee employee, IFormFile ProfilePic)
+        public async Task<IActionResult> Edit(int id, [Bind("empID,empFName,empLName,empBDate,empSSN,empGender,empMaritalStatus,ProfilePic,empPhone,empEmail,empAddress,empCity,empCountry,empState,empZip,empHireDate,empEndDate,empActive,empSalary,deptID")] Employee employee, IFormFile ProfilePic)
         {
             if (id != employee.empID)
             {

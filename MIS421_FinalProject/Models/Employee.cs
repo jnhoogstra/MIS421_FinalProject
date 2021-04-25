@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Permissions;
 using System.Threading.Tasks;
@@ -77,7 +78,11 @@ namespace MIS421_FinalProject.Models
 
 
         //Foreign key to Department
-        public virtual Department Department { get; set; }
+        [Required]
+        public int deptID { get; set; }
+
+        [ForeignKey("DepartmentID")]
+        public Department Department { get; set; }
 
 
     }

@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ProfilePic" class="control-label">Profile Picture</label>
-                <input id="picupload" name="mypic" type="file" multiple class="form-control"/>
+                <input id="ProfilePic" name="ProfilePic" type="file" multiple class="form-control" />
                 <span asp-validation-for="ProfilePic" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -101,6 +101,11 @@
                 <label asp-for="empSalary" class="control-label">Salary</label>
                 <input asp-for="empSalary" class="form-control" />
                 <span asp-validation-for="empSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="deptID" class="control-label">Department</label>
+                <input asp-for="deptID" class="form-control" />
+                <span asp-validation-for="deptID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

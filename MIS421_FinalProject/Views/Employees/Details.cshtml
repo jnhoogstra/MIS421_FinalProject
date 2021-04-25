@@ -10,107 +10,119 @@
     <h4>Employee</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            First Name
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empFName)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empFName)
         </dd>
-        <dt class="col-sm-2">
-            Last Name
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empLName)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empLName)
         </dd>
-        <dt class="col-sm-2">
-            Phone Number
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empBDate)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empPhone)
-        </dd>
-        <dt class="col-sm-2">
-            Email
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empEmail)
-        </dd>
-        <dt class="col-sm-2">
-            Street Address
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empAddress)
-        </dd>
-        <dt class="col-sm-2">
-            City
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empCity)
-        </dd>
-        <dt class="col-sm-2">
-            State
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empState)
-        </dd>
-        <dt class="col-sm-2">
-            Zipcode
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empZip)
-        </dd>
-        <dt class="col-sm-2">
-            Country
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.empCountry)
-        </dd>
-        <dt class="col-sm-2">
-            Birth Date
-        </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empBDate)
         </dd>
-        <dt class="col-sm-2">
-            SSN
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empSSN)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empSSN)
         </dd>
-        <dt class="col-sm-2">
-            Gender
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empGender)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empGender)
         </dd>
-        <dt class="col-sm-2">
-            Marital Status
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empMaritalStatus)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empMaritalStatus)
         </dd>
-        <dt class="col-sm-2">
-            Hire Date
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProfilePic)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProfilePic)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empPhone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empPhone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empCountry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empCountry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empState)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empState)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empZip)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.empZip)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empHireDate)
+        </dt>
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empHireDate)
         </dd>
-        <dt class="col-sm-2">
-            End Date
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empEndDate)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empEndDate)
         </dd>
-        <dt class="col-sm-2">
-            Active?
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empActive)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empActive)
         </dd>
-        <dt class="col-sm-2">
-            Salary
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.empSalary)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.empSalary)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.deptID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.deptID)
         </dd>
     </dl>
 </div>

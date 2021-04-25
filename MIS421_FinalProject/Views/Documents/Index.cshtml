@@ -19,10 +19,16 @@
                 @Html.DisplayNameFor(model => model.uploadDate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.verified)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empID)
             </th>
             <th></th>
         </tr>
@@ -37,15 +43,16 @@
                 @Html.DisplayFor(modelItem => item.uploadDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.verified)
             </td>
             <td>
-                @if (item.content != null)
-                {
-                    var base64 = Convert.ToBase64String(item.content);
-                    var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
-                    <img src ="@imgSrc" height="200" width="200" />
-                }
+                @Html.DisplayFor(modelItem => item.content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.docID">Edit</a> |
