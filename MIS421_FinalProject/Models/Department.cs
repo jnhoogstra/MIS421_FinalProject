@@ -15,15 +15,20 @@ namespace MIS421_FinalProject.Models
 
         [Required(ErrorMessage = "Field is required.")]
         public string deptName { get; set; }
+
         [Required(ErrorMessage = "Field is required.")]
         public string deptAddress { get; set; }
+
         [Required(ErrorMessage = "Field is required.")]
         public string deptCity { get; set; }
+
         [Required(ErrorMessage = "Field is required.")]
         public string deptCountry { get; set; }
 
-        //if the department is located outside the US, probably wont have state or zip
+        [Required(ErrorMessage = "Field is required.")]
         public string deptState { get; set; }
+
+        [Required(ErrorMessage = "Field is required.")]
         public string deptZip { get; set; }
     }
 }
