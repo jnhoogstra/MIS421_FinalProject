@@ -111,7 +111,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="empCountry" class="control-label">Country</label>
-                <input asp-for="empcountry" class="control-label" value="US" readonly />
+                <input asp-for="empCountry" class="control-label" value="US" readonly />
                 <span asp-validation-for="empCountry" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -126,7 +126,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="empGender" class="control-label">Gender</label>
-                <input asp-for="empGender" class="form-control" />
+                <select asp-for="empGender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Non-binary">Non-binary</option>
+                    <option value="Transgender">Transgender</option>
+                    <option value="Intersex">Intersex</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
                 <span asp-validation-for="empGender" class="text-danger"></span>
             </div>
             <div class="form-group">
