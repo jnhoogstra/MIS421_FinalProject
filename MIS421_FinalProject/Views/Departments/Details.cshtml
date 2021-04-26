@@ -4,45 +4,50 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h2>Details</h2>
 
 <div>
-    <h4>Department</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Department Name
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.deptName)
-        </dd>
-        <dt class="col-sm-2">
-            Street Address
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.deptAddress)
-        </dd>
-        <dt class="col-sm-2">
-            City
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.deptCity)
-        </dd>
-        <dt class="col-sm-2">
-            State
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.deptState)
-        </dd>
-        <dt class="col-sm-2">
-            Zipcode
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.deptZip)
-        </dd>
-    </dl>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Departments</h6>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    Department Name
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.deptName)
+                </dd>
+                <dt class="col-sm-2">
+                    Street Address
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.deptAddress)
+                </dd>
+                <dt class="col-sm-2">
+                    City
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.deptCity)
+                </dd>
+                <dt class="col-sm-2">
+                    State
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.deptState)
+                </dd>
+                <dt class="col-sm-2">
+                    Zipcode
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.deptZip)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.deptID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.deptID">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>

@@ -4,57 +4,72 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>HR Portal - Departments</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="mb-4">
+    To update Department information click "edit," located to the right of the Department listing. To remove a Department from the
+    system, click "delete" to view the delete screen. To view a full overview of the department information click "details". To add a new Department, click "Create New."
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Department Name
-            </th>
-            <th>
-                Street Address
-            </th>
-            <th>
-                City
-            </th>
-            <th>
-                State
-            </th>
-            <th>
-                Zipcode
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deptName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deptAddress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deptCity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deptState)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deptZip)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.deptID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.deptID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.deptID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Departments</h6>
+        </div>
+        <div class="card-body">
+<p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Department Name
+                        </th>
+                        <th>
+                            Street Address
+                        </th>
+                        <th>
+                            City
+                        </th>
+                        <th>
+                            State
+                        </th>
+                        <th>
+                            Zipcode
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.deptName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.deptAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.deptCity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.deptState)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.deptZip)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.deptID">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.deptID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.deptID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

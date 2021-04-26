@@ -4,51 +4,55 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h2>Update Department Information</h2>
 
-<h4>Department</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="deptID" />
-            <div class="form-group">
-                <label asp-for="deptName" class="control-label">Department Name</label>
-                <input asp-for="deptName" class="form-control" />
-                <span asp-validation-for="deptName" class="text-danger"></span>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Department</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="deptID" />
+                    <div class="form-group">
+                        <label asp-for="deptName" class="control-label">Department Name</label>
+                        <input asp-for="deptName" class="form-control" />
+                        <span asp-validation-for="deptName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="deptAddress" class="control-label">Street Address</label>
+                        <input asp-for="deptAddress" class="form-control" />
+                        <span asp-validation-for="deptAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="deptCity" class="control-label">City</label>
+                        <input asp-for="deptCity" class="form-control" />
+                        <span asp-validation-for="deptCity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="deptState" class="control-label">State</label>
+                        <input asp-for="deptState" class="form-control" />
+                        <span asp-validation-for="deptState" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="deptZip" class="control-label">Zipcode</label>
+                        <input asp-for="deptZip" class="form-control" />
+                        <span asp-validation-for="deptZip" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="deptAddress" class="control-label">Street Address</label>
-                <input asp-for="deptAddress" class="form-control" />
-                <span asp-validation-for="deptAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="deptCity" class="control-label">City</label>
-                <input asp-for="deptCity" class="form-control" />
-                <span asp-validation-for="deptCity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="deptState" class="control-label">State</label>
-                <input asp-for="deptState" class="form-control" />
-                <span asp-validation-for="deptState" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="deptZip" class="control-label">Zipcode</label>
-                <input asp-for="deptZip" class="form-control" />
-                <span asp-validation-for="deptZip" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

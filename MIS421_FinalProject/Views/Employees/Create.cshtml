@@ -4,185 +4,191 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h2>Add New Employee</h2>
 
-<h4>Employee</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProfilePic" class="control-label">Profile Picture</label>
-                <input id="ProfilePic" name="ProfilePic" type="file" multiple class="form-control" />
-                <span asp-validation-for="ProfilePic" class="text-danger"></span>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Department</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProfilePic" class="control-label">Profile Picture</label>
+                        <input id="ProfilePic" name="ProfilePic" type="file" multiple class="form-control" />
+                        <span asp-validation-for="ProfilePic" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empFName" class="control-label">First Name</label>
+                        <input asp-for="empFName" class="form-control" />
+                        <span asp-validation-for="empFName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empLName" class="control-label">Last Name</label>
+                        <input asp-for="empLName" class="form-control" />
+                        <span asp-validation-for="empLName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empPhone" class="control-label">Phone Number</label>
+                        <input asp-for="empPhone" class="form-control" />
+                        <span asp-validation-for="empPhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empEmail" class="control-label">Email</label>
+                        <input asp-for="empEmail" class="form-control" />
+                        <span asp-validation-for="empEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empAddress" class="control-label">Street Address</label>
+                        <input asp-for="empAddress" class="form-control" />
+                        <span asp-validation-for="empAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empCity" class="control-label">City</label>
+                        <input asp-for="empCity" class="form-control" />
+                        <span asp-validation-for="empCity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empState" class="control-label">State</label>
+                        <select asp-for="empState" class="control-label">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                        <span asp-validation-for="empState" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empZip" class="control-label">Zipcode</label>
+                        <input asp-for="empZip" class="form-control" />
+                        <span asp-validation-for="empZip" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empCountry" class="control-label">Country</label>
+                        <input asp-for="empCountry" class="control-label" value="US" readonly />
+                        <span asp-validation-for="empCountry" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empBDate" class="control-label">Birth Date</label>
+                        <input asp-for="empBDate" class="form-control" />
+                        <span asp-validation-for="empBDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empSSN" class="control-label">SSN</label>
+                        <input asp-for="empSSN" class="form-control" />
+                        <span asp-validation-for="empSSN" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empGender" class="control-label">Gender</label>
+                        <select asp-for="empGender" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Transgender">Transgender</option>
+                            <option value="Intersex">Intersex</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                        <span asp-validation-for="empGender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empMaritalStatus" class="control-label">Marital Status</label>
+                        <select asp-for="empMaritalStatus" class="form-control">
+                            <option value="Single">Single</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Married">Married</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Divorced">Divorced</option>
+                        </select>
+                        <span asp-validation-for="empMaritalStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empHireDate" class="control-label">Hire Date</label>
+                        <input asp-for="empHireDate" class="form-control" />
+                        <span asp-validation-for="empHireDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empEndDate" class="control-label">End Date</label>
+                        <input asp-for="empEndDate" class="form-control" />
+                        <span asp-validation-for="empEndDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="empActive" /> @Html.DisplayNameFor(model => model.empActive)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="empSalary" class="control-label">Salary</label>
+                        <input asp-for="empSalary" class="form-control" />
+                        <span asp-validation-for="empSalary" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="deptID" class="control-label">Department</label>
+                        <input asp-for="deptID" class="form-control" />
+                        <span asp-validation-for="deptID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="empFName" class="control-label">First Name</label>
-                <input asp-for="empFName" class="form-control" />
-                <span asp-validation-for="empFName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empLName" class="control-label">Last Name</label>
-                <input asp-for="empLName" class="form-control" />
-                <span asp-validation-for="empLName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empPhone" class="control-label">Phone Number</label>
-                <input asp-for="empPhone" class="form-control" />
-                <span asp-validation-for="empPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empEmail" class="control-label">Email</label>
-                <input asp-for="empEmail" class="form-control" />
-                <span asp-validation-for="empEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empAddress" class="control-label">Street Address</label>
-                <input asp-for="empAddress" class="form-control" />
-                <span asp-validation-for="empAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empCity" class="control-label">City</label>
-                <input asp-for="empCity" class="form-control" />
-                <span asp-validation-for="empCity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empState" class="control-label">State</label>
-                <select asp-for="empState" class="control-label">
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="DC">District Of Columbia</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                </select>
-                <span asp-validation-for="empState" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empZip" class="control-label">Zipcode</label>
-                <input asp-for="empZip" class="form-control" />
-                <span asp-validation-for="empZip" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empCountry" class="control-label">Country</label>
-                <input asp-for="empCountry" class="control-label" value="US" readonly />
-                <span asp-validation-for="empCountry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empBDate" class="control-label">Birth Date</label>
-                <input asp-for="empBDate" class="form-control" />
-                <span asp-validation-for="empBDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empSSN" class="control-label">SSN</label>
-                <input asp-for="empSSN" class="form-control" />
-                <span asp-validation-for="empSSN" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empGender" class="control-label">Gender</label>
-                <select asp-for="empGender" class="form-control">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Non-binary">Non-binary</option>
-                    <option value="Transgender">Transgender</option>
-                    <option value="Intersex">Intersex</option>
-                    <option value="Prefer not to say">Prefer not to say</option>
-                </select>
-                <span asp-validation-for="empGender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empMaritalStatus" class="control-label">Marital Status</label>
-                <select asp-for="empMaritalStatus" class="form-control" >
-                    <option value="Single">Single</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Married">Married</option>
-                    <option value="Separated">Separated</option>
-                    <option value="Divorced">Divorced</option>
-                </select>
-                <span asp-validation-for="empMaritalStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empHireDate" class="control-label">Hire Date</label>
-                <input asp-for="empHireDate" class="form-control" />
-                <span asp-validation-for="empHireDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="empEndDate" class="control-label">End Date</label>
-                <input asp-for="empEndDate" class="form-control" />
-                <span asp-validation-for="empEndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="empActive" /> @Html.DisplayNameFor(model => model.empActive)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="empSalary" class="control-label">Salary</label>
-                <input asp-for="empSalary" class="form-control" />
-                <span asp-validation-for="empSalary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="deptID" class="control-label">Department</label>
-                <input asp-for="deptID" class="form-control" />
-                <span asp-validation-for="deptID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
