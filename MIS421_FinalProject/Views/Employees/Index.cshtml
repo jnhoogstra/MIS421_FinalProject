@@ -91,11 +91,15 @@
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.deptID)
                                                 </td>
+                                                @if (((User.IsInRole(SD.Admin)) || (User.IsInRole(SD.Manager))) || (User.Identity.Name == item.empEmail))
+                                                {
                                                 <td>
+                                                    
                                                     <a asp-action="Edit" asp-route-id="@item.empID">Edit</a> |
                                                     <a asp-action="Details" asp-route-id="@item.empID">Details</a> |
                                                     <a asp-action="Delete" asp-route-id="@item.empID">Delete</a>
                                                 </td>
+                                                }
                                             </tr>
                                         }
                                     </tbody>
