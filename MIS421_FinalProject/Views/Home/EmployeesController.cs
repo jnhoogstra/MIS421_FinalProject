@@ -95,7 +95,7 @@ namespace MIS421_FinalProject.Views.Home
                 return NotFound();
             }
 
-            var employee = await _context.Employee.FindAsync(id);
+            var employee = await _context.Employee.FirstOrDefaultAsync(m => m.empID == id);
             if (employee == null)
             {
                 return NotFound();
@@ -104,7 +104,10 @@ namespace MIS421_FinalProject.Views.Home
             {
                 return View (employee);
             }
-            return Unauthorized();
+            else
+            {
+                return Forbid();
+            }
         }
 
         // POST: Employees/Edit/5
