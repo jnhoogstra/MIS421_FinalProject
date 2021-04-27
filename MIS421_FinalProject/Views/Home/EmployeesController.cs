@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +18,8 @@ namespace MIS421_FinalProject.Views.Home
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public EmployeesController(ApplicationDbContext context)
         {
@@ -76,10 +80,12 @@ namespace MIS421_FinalProject.Views.Home
             return View(employee);
         }
 
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize]
         // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            var email = User.FindFirstValue(ClaimTypes.Email);
+
             if (id == null)
             {
                 return NotFound();
@@ -90,7 +96,11 @@ namespace MIS421_FinalProject.Views.Home
             {
                 return NotFound();
             }
-            return View(employee);
+            if (((User.IsInRole(SD.Admin)) || (User.IsInRole(SD.Manager))) || (email == employee.empEmail))
+            {
+                return View (employee);
+            }
+            return Unauthorized();
         }
 
         // POST: Employees/Edit/5

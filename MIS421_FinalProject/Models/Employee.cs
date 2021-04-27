@@ -76,14 +76,11 @@ namespace MIS421_FinalProject.Models
         [Required(ErrorMessage = "Field is required.")]
         public float empSalary { get; set; }
 
-
         //Foreign key to Department
         [Required]
         public int deptID { get; set; }
 
         [ForeignKey("DepartmentID")]
         public Department Department { get; set; }
-
-
     }
 }
