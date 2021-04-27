@@ -26,12 +26,16 @@ namespace MIS421_FinalProject.Views.Home
             _context = context;
         }
 
+
+        [Authorize]
         // GET: Employees
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employee.ToListAsync());
         }
 
+
+        [Authorize(Roles = "Admin, Manager")]
         // GET: Employees/Details/5
         public async Task<IActionResult> Details(int? id)
         {

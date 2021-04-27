@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,8 @@ namespace MIS421_FinalProject.Views.Home
             _context = context;
         }
 
+
+        [Authorize]
         // GET: Departments
         public async Task<IActionResult> Index()
         {
@@ -43,6 +46,8 @@ namespace MIS421_FinalProject.Views.Home
             return View(department);
         }
 
+
+        [Authorize(Roles = "Admin")]
         // GET: Departments/Create
         public IActionResult Create()
         {
@@ -65,6 +70,8 @@ namespace MIS421_FinalProject.Views.Home
             return View(department);
         }
 
+
+        [Authorize(Roles = "Admin")]
         // GET: Departments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -116,6 +123,8 @@ namespace MIS421_FinalProject.Views.Home
             return View(department);
         }
 
+
+        [Authorize(Roles = "Admin")]
         // GET: Departments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
