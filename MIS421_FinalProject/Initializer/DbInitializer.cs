@@ -43,6 +43,10 @@ namespace MIS421_FinalProject
             {
                 _roleManager.CreateAsync(new IdentityRole(SD.Manager)).GetAwaiter().GetResult();
             }
+            if (!_db.Roles.Any(r => r.Name == SD.User))
+            {
+                _roleManager.CreateAsync(new IdentityRole(SD.User)).GetAwaiter().GetResult();
+            }
 
             var userFromDB = _userManager.FindByEmailAsync("admin@gmail.com");
             if (userFromDB.Result == null)

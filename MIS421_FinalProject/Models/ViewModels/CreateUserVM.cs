@@ -10,6 +10,7 @@ namespace MIS421_FinalProject
     {
         public ApplicationUser AppUser { get; set; }
 
+        [Required]
         public List<string> AllRoles { get; set; }
 
         [Required]
