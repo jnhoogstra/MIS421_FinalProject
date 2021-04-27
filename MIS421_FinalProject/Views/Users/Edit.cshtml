@@ -34,7 +34,7 @@
                 {
                     <tr>
                         <td class="js-export-checkbox">
-                            <input name="CheckRoles" type="checkbox" @(Model.UserRoles.Contains(item) ? "checked" : "") value="@item" /> @item<br />
+                            <input name="CheckRoles" type="checkbox" @(Model.UserRoles.Contains(item) ? "checked" : "") value="@item" required /> @item<br />
                         </td>
                     </tr>
                 }
