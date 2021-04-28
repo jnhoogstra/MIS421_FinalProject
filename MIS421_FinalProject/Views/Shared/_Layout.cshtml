@@ -25,20 +25,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="">Employees</a>
                         </li>
-                        @if (User.IsInRole(SD.Manager) || User.IsInRole(SD.Admin) || User.IsInRole(SD.User))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Reports
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropDown">
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Create">Department Statistics</a>
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Index">Gender Statistics</a>
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Details">City Statistics</a>
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Edit">State Statistics</a>
-                                </div>
-                            </li>
-                        }
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Documents" asp-action="Create">Reports</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
