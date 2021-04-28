@@ -46,6 +46,8 @@ namespace MIS421_FinalProject.Views.Home
             return View(document);
         }
 
+
+        [Authorize]
         // GET: Documents/Create
         public IActionResult Create()
         {
