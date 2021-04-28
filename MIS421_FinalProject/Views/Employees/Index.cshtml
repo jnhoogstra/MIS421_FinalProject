@@ -4,110 +4,112 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>HR Portal - Employees</h1>
-
-<!-- Page Heading -->
-<p class="mb-4">
-    To update Employee information click "edit," located to the right of the Employee listing. To remove an Employee from the
-    system, click "delete" to view the delete screen. To view a full overview of the Employee's information click "details". To add a new Employee, click "Create New."
-</p>
-
-<!-- DataTales Example -->
-<div class="card shadow bg-light text-white mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Employee</h6>
-    </div>
-    <div class="card-body">
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>
-                            Profile Picture
-                        </th>
-                        <th>
-                            First Name
-                        </th>
-                        <th>
-                            Last Name
-                        </th>
-                        <th>
-                            Phone Number
-                        </th>
-                        <th>
-                            Email
-                        </th>
-                        <th>
-                            Birth Date
-                        </th>
-                        <th>
-                            Hire Date
-                        </th>
-                        <th>
-                            Active?
-                        </th>
-                        <th>
-                            DepartmentID
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @if (item.ProfilePic != null)
-                                {
-                                    var base64 = Convert.ToBase64String(item.ProfilePic);
-                                    var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
-                                    <img src="@imgSrc" height="100" width="100" />
-                                }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empFName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empLName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empPhone)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empEmail)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empBDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empHireDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empActive)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.deptID)
-                            </td>
-                            @if (((User.IsInRole(SD.Admin)) || (User.IsInRole(SD.Manager))) || (User.Identity.Name == item.empEmail))
-                            {
-                                <td>
-
-                                    <a asp-action="Edit" asp-route-id="@item.empID">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.empID">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.empID">Delete</a>
-                                </td>
-                            }
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div style="color: royalblue;">
+    <h1>HR Portal - Employees</h1>
 </div>
 
+    <!-- Page Heading -->
+    <p class="mb-4">
+        To update Employee information click "edit," located to the right of the Employee listing. To remove an Employee from the
+        system, click "delete" to view the delete screen. To view a full overview of the Employee's information click "details". To add a new Employee, click "Create New."
+    </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow bg-light border-primary text-white mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Employee</h6>
+        </div>
+        <div class="card-body">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Profile Picture
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                            <th>
+                                Phone Number
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Birth Date
+                            </th>
+                            <th>
+                                Hire Date
+                            </th>
+                            <th>
+                                Active?
+                            </th>
+                            <th>
+                                DepartmentID
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.ProfilePic != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(item.ProfilePic);
+                                        var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                        <img src="@imgSrc" height="100" width="100" />
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empFName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empLName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empPhone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empEmail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empBDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empHireDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empActive)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.deptID)
+                                </td>
+                                @if (((User.IsInRole(SD.Admin)) || (User.IsInRole(SD.Manager))) || (User.Identity.Name == item.empEmail))
+                                {
+                                    <td>
+
+                                        <a asp-action="Edit" asp-route-id="@item.empID">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.empID">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.empID">Delete</a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
-<script type='text/javascript' src='https://prod-useast-b.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1920px; height: 883px;'><object class='tableauViz' width='1920' height='883' style='display:none;'><param name='host_url' value='https%3A%2F%2Fprod-useast-b.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;mis421finalproject' /><param name='name' value='MIS421-FinalProject&#47;EmployeesPerDept' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /></object></div>
+
+    <script type='text/javascript' src='https://prod-useast-b.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1920px; height: 883px;'><object class='tableauViz' width='1920' height='883' style='display:none;'><param name='host_url' value='https%3A%2F%2Fprod-useast-b.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;mis421finalproject' /><param name='name' value='MIS421-FinalProject&#47;EmployeesPerDept' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /></object></div>

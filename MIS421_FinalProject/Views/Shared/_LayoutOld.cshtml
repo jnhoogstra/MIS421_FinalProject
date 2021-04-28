@@ -1,36 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        -->
     <title>@ViewData["Title"] - HR Portal</title>
-
-    <!--
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
      <link rel="stylesheet" href="./css/bootstrap.min (9).css"/>
-    -->
-
-    <!-- Favicons -->
-    <link href="~/NewBiz/assets/img/favicon.png" rel="icon">
-    <link href="~/NewBiz/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts--> 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"> 
-
-    <!-- Vendor CSS Files -->
-    <link href="~/NewBiz/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="~/NewBiz/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/NewBiz/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="~/NewBiz/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="~/NewBiz/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="~/NewBiz/assets/css/style.css" rel="stylesheet">
-
-
 </head>
 <body>
     <header>
@@ -49,20 +25,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="">Employees</a>
                         </li>
-                        @if (User.IsInRole(SD.Manager) || User.IsInRole(SD.Admin) || User.IsInRole(SD.User))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Reports
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropDown">
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Create">Department Statistics</a>
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Index">Gender Statistics</a>
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Details">City Statistics</a>
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Documents" asp-action="Edit">State Statistics</a>
-                                </div>
-                            </li>
-                        }
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Documents" asp-action="Create">Reports</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -101,19 +66,8 @@
             &copy; 2021 - MIS421_FinalProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
-    <!-- Vendor JS Files -->
-    <script src="~/NewBiz/assets/vendor/aos/aos.js"></script>
-    <script src="~/NewBiz/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/NewBiz/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="~/NewBiz/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="~/NewBiz/assets/vendor/php-email-form/validate.js"></script>
-    <script src="~/NewBiz/assets/vendor/purecounter/purecounter.js"></script>
-    <script src="~/NewBiz/assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="~/NewBiz/assets/js/main.js"></script>
-
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

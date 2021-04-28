@@ -4,80 +4,82 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>HR Portal - Documents</h1>
+<div style="color: royalblue;">
+    <h1>HR Portal - Documents</h1>
+</div>
 
-<p class="mb-4">
-    To update Document information click "edit," located to the right of the Document listing. To remove a Document from the
-    system, click "delete" to view the delete screen. To view a full overview of the document information click "details". To add a new Document, click "Create New."
-</p>
+    <p class="mb-4">
+        To update Document information click "edit," located to the right of the Document listing. To remove a Document from the
+        system, click "delete" to view the delete screen. To view a full overview of the document information click "details". To add a new Document, click "Create New."
+    </p>
 
 
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Documents</h6>
-    </div>
-    <div class="card-body">
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>
-                            Document Name
-                        </th>
-                        <th>
-                            Upload Date
-                        </th>
-                        <th>
-                            Item Size
-                        </th>
-                        <th>
-                            Verified
-                        </th>
-                        <th>
-                            Item Content
-                        </th>
-                        <th>
-                            Employee ID
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header bg-light border-primary py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Documents</h6>
+        </div>
+        <div class="card-body">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.docName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.uploadDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Size)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.verified)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.content)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.empID)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.docID">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.docID">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.docID">Delete</a>
-                            </td>
+                            <th>
+                                Document Name
+                            </th>
+                            <th>
+                                Upload Date
+                            </th>
+                            <th>
+                                Item Size
+                            </th>
+                            <th>
+                                Verified
+                            </th>
+                            <th>
+                                Item Content
+                            </th>
+                            <th>
+                                Employee ID
+                            </th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.docName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.uploadDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Size)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.verified)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.content)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.empID)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.docID">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.docID">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.docID">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
